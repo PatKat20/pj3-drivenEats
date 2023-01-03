@@ -1,172 +1,261 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,100&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
 
-*{
+* {
     box-sizing: border-box;
-    margin:0;
-    padding:0;
+    margin: 0;
+    padding: 0;
 }
 
-body{
-    background-color:#EEEEEE;
+body {
+    background-color: #EEEEEE;
 }
 
-input{
-    width:0;
-    height:0;
-    display:none;
+input {
+    width: 0;
+    height: 0;
+    display: none;
 }
 
-img{
-    max-width:100%;
-    display:block;
-    border-radius:4px;
+img {
+    max-width: 100%;
+    display: block;
+    border-radius: 4px;
 }
 
-a{
+a {
     text-decoration: none;
 }
 
-#fade{
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height: 100%;
-    z-index:5;
-    background-color:rgba(0, 0, 0, 0.6)
+ul {
+    list-style: none;
 }
+
+
 
 /* Header area */
 
-#header{
-    background-color:#CF2B2B;
-    height:92px;
-    padding:21px;
-    color:white;
+#header {
+    background-color: #CF2B2B;
+    height: 92px;
+    padding: 21px;
+    color: white;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    width:100vw;
-    position:sticky;
-    top:0;
-    left:0;
+    width: 100vw;
+    position: sticky;
+    top: 0;
+    left: 0;
 }
 
-#h-title{
-    font-family:"Righteous", sans-serif;
-    margin:0;
+#h-title {
+    font-family: "Righteous", sans-serif;
+    margin: 0;
 }
 
 /* Dishes Area */
 
-.productTitle{
-    color:#333;
-    font-family:"Righteous", sans-serif;
-    margin-left:19px;
-    margin-top:31px;
+.productTitle {
+    color: #333;
+    font-family: "Righteous", sans-serif;
+    margin-left: 19px;
+    margin-top: 31px;
 }
 
 
-#dishesList, #drinksList, #dessertList{
-    display:flex;
+#dishesList, #drinksList, #dessertList {
+    display: flex;
     justify-content: space-between;
-    width:100vw;
-    padding:17px 0 0 19px;
+    width: 100vw;
+    padding: 17px 0 0 19px;
     overflow-x: scroll;
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
 }
 
-.removescroll::-webkit-scrollbar{
-    display:none;
+.removescroll::-webkit-scrollbar {
+    display: none;
 }
 
-.products{
+.products {
     box-shadow: 0px 0px 10px -4px rgba(0, 0, 0, 0.25);
-    display:flex;
+    display: flex;
     justify-content: center;
     flex-direction: column;
-    min-width:172px;
-    width:172px;
-    height:216px;
-    border-radius:9px;
-    padding:10px 14px 13px;
-    background-color:white;
-    margin-right:16px;
+    min-width: 172px;
+    width: 172px;
+    height: 216px;
+    border-radius: 9px;
+    padding: 10px 14px 13px;
+    background-color: white;
+    margin-right: 16px;
 }
 
-.descArea{
+.descArea {
     font-family: "Roboto", sans-serif;
-    margin-top:7px;
+    margin-top: 7px;
 }
 
-.descArea h4{
-    color:#333;
+.descArea h4 {
+    color: #333;
     font-weight: 700;
 }
 
-.imgArea>:last-child{
-    margin-top:-15px;
+.imgArea>:last-child {
+    margin-top: -15px;
 }
 
-.desc{
+.desc {
     font-family: "Roboto", sans-serif;
-    font-size:15px;
+    font-size: 15px;
     font-weight: 300;
-    color:#a6a6a6;
-    padding:8px 0 12px;
+    color: #a6a6a6;
+    padding: 8px 0 12px;
 }
 
-.price{
-    font-size:16px;
+.price {
+    font-size: 16px;
     font-weight: 400;
 }
 
-.title-desc{
-    font-family:"Roboto", sans-serif;
+.title-desc {
+    font-family: "Roboto", sans-serif;
 }
 
-.selecionado{
+.selecionado {
     box-shadow: 0px 0px 10px -4px rgba(0, 0, 0, 0.25), inset 0px 0px 0px 5px #32B72F;
 }
 
-.dessertSection{
-    margin-bottom:112px;
+.dessertSection {
+    margin-bottom: 112px;
 }
 
 
 /* Button area */
 
-.button-area{
-    position:fixed;
-    bottom:0;
-    left:0;
+.button-area {
+    position: fixed;
+    bottom: 0;
+    left: 0;
     background-color: white;
-    padding:15px 20px;
+    padding: 15px 20px;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    width:100%;
+    width: 100%;
 }
 
-#sendButton{
-    border:0;
-    background-color:#CBCBCB;
-    color:white;
-    width:364px;
-    height:61px;
-    border-radius:50px;
-    font-family:"Roboto", sans-serif;
+#sendButton {
+    border: 0;
+    background-color: #CBCBCB;
+    color: white;
+    width: 364px;
+    height: 61px;
+    border-radius: 50px;
+    font-family: "Roboto", sans-serif;
     font-weight: 400;
-    font-size:20px;
+    font-size: 20px;
 }
 
-.sendButtonText{
-   display:flex;
-   justify-content: center;
-   align-items: center;
-   height:100%;
-   width:200px;
-   margin:auto;
-   text-align: center;
+.sendButtonText {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 200px;
+    margin: auto;
+    text-align: center;
+}
+
+/* Modal */
+
+#fade {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+    background-color: rgba(0, 0, 0, 0.6);
+    cursor:default;
+}
+
+#modal {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 377px;
+    max-width: 90%;
+    background-color: #50D074;
+    padding: 1.5rem;
+    border-radius: 9px;
+    z-index: 10;
+    color:white;
+    font-family: "Roboto", sans-serif;
+}
+
+
+#fade,
+#modal {
+  transition: 0.5s;
+  opacity: 1;
+  pointer-events: all;
+}
+
+#modal.hide,
+#fade.hide {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#modal.hide {
+    top: 0;
+  }
+
+#modal-title{
+    text-align: center;
+    margin-bottom:28px;
+}
+
+.order-item{
+    display:flex;
+    justify-content: space-between;
+    margin-bottom:13px;
+    font-weight: 400;
+    font-size:22px;
+}
+
+#order-total{
+    font-size:22px;
+    font-weight: 700;
+    text-transform: uppercase;
+    display:flex;
+    justify-content: space-between;
+}
+
+#order-accept{
+    display:block;
+    background-color:white;
+    color:#50D074;
+    width:329px;
+    height:52px;
+    line-height:52px;
+    border-radius:100px;
+    margin-top:24px;
+    margin-bottom:26px;
+    font-weight: 700;
+    text-align:center;
+}
+
+#order-cancel{
+    background-color: transparent;
+    border:0;
+    color:white;
+    font-weight: 700;
+    cursor:pointer;
+    margin:0 auto;
+    width:100%
 }

@@ -9,13 +9,12 @@ prodObj.dishes = [
     {id:6, nome: "Frango Yin Yang", desc: "Um pouco de batata, um pouco de salada", price: 14.90, img: "assets/img/frango_yin_yang.png" , type:"dish"},
     {id:7, nome: "Frango Yin Yang", desc: "Um pouco de batata, um pouco de salada", price: 14.90, img: "assets/img/frango_yin_yang.png" , type:"dish"},
     {id:8, nome: "Frango Yin Yang", desc: "Um pouco de batata, um pouco de salada", price: 14.90, img: "assets/img/frango_yin_yang.png" , type:"dish"},
-    
 ]
 
 prodObj.drinks = [
-    {id:1, nome: "Coquinha Gelada", desc: "Lata 350ml", price: 5.90, img: "assets/img/coca-cola.png", type:"drink" },
-    {id:2, nome: "Fanta Uva", desc: "Lata 350ml", price: 6.90, img: "http://rostiehouse.com.br/wp-content/uploads/2018/10/fanta-uva-lata.jpg", type:"drink" },
-    {id:3, nome: "Guarana Antartica", desc: "Lata 350ml", price: 7.90, img: "https://imgs.via.com.br/55019908/3g.jpg?imwidth=292", type:"drink" },
+    {id:1, nome: "Coquinha Gelada", desc: "Lata 350ml", price: 8.00, img: "assets/img/coca-cola.png", type:"drink" },
+    {id:2, nome: "Fanta Uva", desc: "Lata 350ml", price: 7.00, img: "http://rostiehouse.com.br/wp-content/uploads/2018/10/fanta-uva-lata.jpg", type:"drink" },
+    {id:3, nome: "Guarana Antartica", desc: "Lata 350ml", price: 6.50, img: "https://imgs.via.com.br/55019908/3g.jpg?imwidth=292", type:"drink" },
     {id:4, nome: "Coquinha Gelada", desc: "Lata 350ml", price: 4.90, img: "assets/img/coca-cola.png", type:"drink" },
     {id:5, nome: "Coquinha Gelada", desc: "Lata 350ml", price: 4.90, img: "assets/img/coca-cola.png", type:"drink" },
     {id:6, nome: "Coquinha Gelada", desc: "Lata 350ml", price: 4.90, img: "assets/img/coca-cola.png", type:"drink" },
@@ -42,7 +41,8 @@ prodObj.convertDateIntoHtml = productInfo => {
         data-test="${type}" 
         data-itemname="${productName}"
         data-itemprice="${productPrice}"
-        data-itemtype="${type}">
+        data-itemtype="${type}"
+        data-itemid="${id}">
             <div class="imgArea">
                 <img src="${productImg}" alt="" width="144px" height="82px">
             </div>
