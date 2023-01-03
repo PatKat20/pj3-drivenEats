@@ -21,6 +21,7 @@ prodObj.drinks = [
     {id:6, nome: "Coquinha Gelada", desc: "Lata 350ml", price: 4.90, img: "assets/img/coca-cola.png", type:"drink" },
     {id:7, nome: "Coquinha Gelada", desc: "Lata 350ml", price: 4.90, img: "assets/img/coca-cola.png", type:"drink" },
     {id:8, nome: "Coquinha Gelada", desc: "Lata 350ml", price: 4.90, img: "assets/img/coca-cola.png", type:"drink" },
+   
 ]
 
 prodObj.desserts = [

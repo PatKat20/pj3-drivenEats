@@ -15,29 +15,29 @@
         <h1 id="h-title">DrivenEats</h1>
         <p class="title-desc">Sua comida em 6 minutos</p>
     </header>
-    <main>
+    <main">
         <section class="dishesSection">
             <h2 class="productTitle">Primeiro, seu prato</h2>
-            <form id="dishesList">
+            <form id="dishesList" class="removescroll">
 
             </form>
         </section>
 
         <section class="drinksSection">
             <h2 class="productTitle">Agora, sua sobremesa</h2>
-            <form id="drinksList">
+            <form id="drinksList" class="removescroll">
 
             </form>
         </section>
 
         <section class="dessertSection">
             <h2 class="productTitle">Agora, sua sobremesa</h2>
-            <form id="dessertList">
+            <form id="dessertList" class="removescroll">
 
             </form>
         </section>
         <form class="button-area">
-            <a href="" id="sendButton" disabled target="_blank">
+            <a id="sendButton" role="button" aria-disabled="true" disabled target="_blank">
                 <p class="sendButtonText">
                     Selecione os 3 itens para fechar o pedido
                 </p>
@@ -45,14 +45,6 @@
         </form>
     </main>
 
-    <div class="modal">
-        <header>
-            <h3>Confirme seu pedido</h3>
-        </header>
-        <section class="order">
-            <p></p>
-        </section>
-    </div>
 
     <script src="assets/js/products.js"></script>
     <script src="assets/js/script.js"></script>

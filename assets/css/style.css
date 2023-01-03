@@ -27,6 +27,16 @@ a{
     text-decoration: none;
 }
 
+#fade{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height: 100%;
+    z-index:5;
+    background-color:rgba(0, 0, 0, 0.6)
+}
+
 /* Header area */
 
 #header{
@@ -64,6 +74,10 @@ a{
     overflow-x: scroll;
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;  /* Firefox */
+}
+
+.removescroll::-webkit-scrollbar{
+    display:none;
 }
 
 .products{
@@ -109,10 +123,6 @@ a{
 
 .title-desc{
     font-family:"Roboto", sans-serif;
-}
-
-#productList::-webkit-scrollbar{
-    display:none;
 }
 
 .selecionado{
