@@ -17,6 +17,26 @@ const desserts = document.querySelectorAll(".dessert")
 
 // Funções
 
+function adicionaEventoAoBotao() {
+    sendButton.addEventListener("click", e=> {
+        const modalArea = document.querySelector(".modalArea")
+        const [dishName, dishPrice, drinkName, drinkPrice, dessertName, dessertPrice, total] = getDishesData()
+        let dishPriceConvert = Number(dishPrice)
+        let drinkPriceConvert = Number(drinkPrice)
+        let dessertPriceConvert = Number(dessertPrice)
+
+        modalArea.innerHTML = setDishesInfoIntoModal(dishName, dishPriceConvert, drinkName, drinkPriceConvert, dessertName, dessertPriceConvert, total)
+
+        const buttonCancel = document.getElementById("order-cancel")
+        buttonCancel.addEventListener("click", _ => {
+            const fade = document.querySelector("#fade")
+            const modal = document.querySelector("#modal")
+            fade.classList.add("hide")
+            modal.classList.add("hide")
+        })
+    })
+}
+
 // Sempre que chamada ela vai verificar a lista dos produtos para saber quem está selecionado e quem não está
 const verifyCheckedInput = foodArray => {
     foodArray.forEach(input => {
@@ -40,6 +60,7 @@ const verifySelectedDishes = () => {
         sendButton.style.backgroundColor = "#32B72F"
         sendButton.style.cursor = "pointer";
         sendButton.style.fontWeight = "700"
+        adicionaEventoAoBotao()
     }
 }
 
@@ -61,7 +82,7 @@ Total: R$ ${total.toFixed(2)}`
 
 const getDishesData = () => {
     const selecionados = document.querySelectorAll(".selecionado")
-    const selecionadosParaArray = Array.from(selecionados)
+    const selecionadosParaArray = Array.from(selecionados);
 
     const dishName = selecionadosParaArray[0] ? selecionadosParaArray[0].dataset.itemname : null
     const dishPrice = selecionadosParaArray[0] ? selecionadosParaArray[0].dataset.itemprice : null
@@ -77,8 +98,7 @@ const getDishesData = () => {
 }
 
 const setDishesInfoIntoModal = (dishname, dishPrice, drinkname, drinkPrice, dessertname, dessertPrice, total) => {
-    const urlEnconded = "https://wa.me/5521975109175?text=" + encodeURIComponent(generateOrderMessage())
-
+    const urlEnconded = "https://wa.me/5555555555555?text=" + encodeURIComponent(generateOrderMessage())
     return `
         <div id="fade"></div>
         <div id="modal" data-test="confirm-order-modal">
@@ -103,38 +123,21 @@ const setDishesInfoIntoModal = (dishname, dishPrice, drinkname, drinkPrice, dess
 
 // Eventos
 
-dishesList.addEventListener("click", _ => {
+dishesList.addEventListener("click", e => {
     verifyCheckedInput(dishes)
-    verifySelectedDishes()
 })
 
-drinksList.addEventListener("click", _ => {
+drinksList.addEventListener("click", e => {
     verifyCheckedInput(drinks)
-    verifySelectedDishes()
 })
 
-dessertList.addEventListener("click", _ => {
+dessertList.addEventListener("click", e => {
     verifyCheckedInput(desserts)
+})
+
+const mainContent = document.getElementById("main-content")
+mainContent.addEventListener("click", e=>{
     verifySelectedDishes()
 })
 
-sendButton.addEventListener("click", _ => {
-    const modalArea = document.querySelector(".modalArea")
-    modalArea.classList.remove("hide")
-    const [dishName, dishPrice, drinkName, drinkPrice, dessertName, dessertPrice, total] = getDishesData()
-    let dishPriceConvert = Number(dishPrice)
-    let drinkPriceConvert = Number(drinkPrice)
-    let dessertPriceConvert = Number(dessertPrice)
-    
-    modalArea.innerHTML = setDishesInfoIntoModal(dishName, dishPriceConvert, drinkName, drinkPriceConvert, dessertName, dessertPriceConvert, total)
-   
-    const buttonCancel = document.getElementById("order-cancel")
-    buttonCancel.addEventListener("click", _ => {
-       const fade = document.querySelector("#fade")
-       const modal = document.querySelector("#modal")
-       fade.classList.add("hide")
-       modal.classList.add("hide")
-    })
-    
-})
-
+dishesList.getAttribute

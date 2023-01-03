@@ -15,7 +15,7 @@
         <h1 id="h-title">DrivenEats</h1>
         <p class="title-desc">Sua comida em 6 minutos</p>
     </header>
-    <main">
+    <main id="main-content">
         <section class="dishesSection">
             <h2 class="productTitle">Primeiro, seu prato</h2>
             <form id="dishesList" class="removescroll">
@@ -39,15 +39,22 @@
         <form class="button-area">
             <button id="sendButton" type="button" disabled data-test="order-btn">
                 <p class="sendButtonText">
-                    Selecione os 3 itens para fechar o pedido
+                    Selecione mais 3 itens para fechar o pedido
                 </p>
             </button>
         </form>
     </main>
-        <div class="modalArea">
+    <div class="modalArea">
 
-        </div>
+    </div>
 
+    <script>
+        const askNameAndAdress = () => {
+            const nome = prompt("Qual teu nome");
+            const endereco = prompt("Qual o teu endereco");
+            return [nome, endereco]
+        }
+    </script>
     <script src="assets/js/products.js"></script>
     <script src="assets/js/script.js"></script>
 </body>
