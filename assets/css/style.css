@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+
+*{
+    box-sizing: border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    background-color:#EEEEEE;
+}
+
+input{
+    width:0;
+    height:0;
+    display:none;
+}
+
+/* Header area */
+
+#header{
+    background-color:#CF2B2B;
+    height:92px;
+    padding:21px;
+    color:white;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    width:100vw;
+    position:sticky;
+    top:0;
+    left:0;
+}
+
+#h-title{
+    font-family:"Righteous", sans-serif;
+    margin:0;
+}
+
+/* Dishes Area */
+
+.productTitle{
+    color:#333;
+    font-family:"Righteous", sans-serif;
+    margin-left:19px;
+    margin-top:31px;
+}
+
+
+#dishesList, #drinksList, #dessertList{
+    display:flex;
+    justify-content: space-between;
+    width:100vw;
+    padding:17px 0 0 19px;
+    overflow-x: scroll;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+.products{
+    box-shadow: 0px 0px 10px -4px rgba(0, 0, 0, 0.25);
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-width:172px;
+    width:172px;
+    height:216px;
+    border-radius:9px;
+    padding:18px 14px 13px;
+    background-color:white;
+    margin-right:16px;
+}
+
+.descArea{
+    font-family: "Roboto", sans-serif;
+}
+
+.descArea h4{
+    color:#333;
+    font-weight: 700;
+}
+
+.desc{
+    font-family: "Roboto", sans-serif;
+    font-size:15px;
+    font-weight: 300;
+    color:#a6a6a6;
+    padding:8px 0 12px;
+}
+
+.price{
+    font-size:16px;
+    font-weight: 400;
+}
+
+.title-desc{
+    font-family:"Roboto", sans-serif;
+}
+
+#productList::-webkit-scrollbar{
+    display:none;
+}
+
+.selecionado{
+    box-shadow: 0px 0px 10px -4px rgba(0, 0, 0, 0.25), inset 0px 0px 0px 5px #32B72F;
+}
+
+
+/* Button area */
+.button-area{
+    position:sticky;
+    bottom:0;
+    left:0;
+    margin-top:12px;
+    background-color: white;
+    padding:15px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#sendButton{
+    border:0;
+    background-color:#CBCBCB;
+    color:white;
+    width:364px;
+    height:61px;
+    border-radius:50px;
+    font-family:"Roboto", sans-serif;
+}
