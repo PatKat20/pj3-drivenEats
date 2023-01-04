@@ -49,8 +49,12 @@ prodObj.convertDateIntoHtml = productInfo => {
             <div class="descArea">
                 <h4 data-test="item-name">${productName}</h4>
                 <p class="desc">${desc}</p>
-                <p data-test="item-price" class="price">${productPrice.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</p>
+                <div class="priceArea">
+                    <p data-test="item-price" class="price">${productPrice.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</p>
+                    <img src="assets/img/Vector.svg" class="okayImg" width="16px"></img>
+                </div>
             </div>
+            
             <input type="radio" id="${type + id}" name="${type}" class="${type}">
         </label>
     `

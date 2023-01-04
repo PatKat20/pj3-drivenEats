@@ -7,7 +7,6 @@ drinksList.innerHTML = prodObj.convertDateIntoHtml(prodObj.drinks)
 dessertList.innerHTML = prodObj.convertDateIntoHtml(prodObj.desserts)
 
 // Funções
-
 // Sempre que chamada ela vai verificar a lista dos produtos para saber quem está selecionado e quem não está
 const verifyCheckedInput = foodArray => {
     foodArray.forEach(input => {
@@ -28,9 +27,6 @@ const verifySelectedDishes = () => {
 
     if (contagemSelecionados === 3) {
         sendButton.removeAttribute("disabled");
-        sendButton.style.backgroundColor = "#32B72F"
-        sendButton.style.cursor = "pointer";
-        sendButton.style.fontWeight = "700"
         sendButton.classList.add("active")
     }
 }
@@ -42,7 +38,7 @@ const formatButtonText = (buttonText, contagem) => {
 }
 
 // Função que Levanta o Modal
-function adicionaEventoAoBotao() {
+function generateModal() {
     const modalArea = document.querySelector(".modalArea")
     const [dishName, dishPrice, drinkName, drinkPrice, dessertName, dessertPrice, total] = getDishesData()
 
@@ -52,6 +48,7 @@ function adicionaEventoAoBotao() {
 
     const clientName = prompt("Qual o seu nome?")
     const clientEndereco = prompt("Qual o seu endereço?")
+
     modalArea.innerHTML = setDishesInfoIntoModal(dishName, dishPriceConvert, drinkName, drinkPriceConvert, dessertName, dessertPriceConvert, total, clientName, clientEndereco)
 
     const buttonCancel = document.getElementById("order-cancel")
@@ -82,21 +79,10 @@ const getDishesData = () => {
     return [dishName, dishPrice, drinkName, drinkPrice, dessertName, dessertPrice, total]
 }
 
-// Pega os dados das receitas selecionadas e converte para uma mensagem
-const generateOrderMessage = (clientName, clientAddress) => {
-    const [dishName, , drinkName, , dessertName, , total] = getDishesData()
-    return `Olá, gostaria de fazer o pedido:
-    - Prato: ${dishName}
-    - Bebida: ${drinkName}
-    - Sobremesa: ${dessertName}
-Total: R$ ${total.toFixed(2)}
-    Nome: ${clientName}
-    Endereço : ${clientAddress}
-`
-}
-
+// Vai utilizar os dados coletados dos pedidos e inserir no modal
 const setDishesInfoIntoModal = (dishname, dishPrice, drinkname, drinkPrice, dessertname, dessertPrice, total, clientName, clientAddress) => {
     const urlEnconded = "https://wa.me/5555555555555?text=" + encodeURIComponent(generateOrderMessage(clientName, clientAddress))
+
     return `
         <div id="fade"></div>
         <div id="modal" data-test="confirm-order-modal">
@@ -119,14 +105,27 @@ const setDishesInfoIntoModal = (dishname, dishPrice, drinkname, drinkPrice, dess
     `
 }
 
+// Pega os dados das receitas selecionadas e converte para uma mensagem
+const generateOrderMessage = (clientName = "Não fornecido", clientAddress = "Não Fornecido") => {
+    const [dishName, , drinkName, , dessertName, , total] = getDishesData()
+    return `Olá, gostaria de fazer o pedido:\n
+    - Prato: ${dishName}\n
+    - Bebida: ${drinkName}\n
+    - Sobremesa: ${dessertName}\n
+Total: R$ ${total.toFixed(2)}\n
+   
+  \nNome: ${clientName}\n
+    Endereço : ${clientAddress}\n
+`
+}
+
 // Eventos
 
 sendButton.addEventListener("click", e=> {
     if(sendButton.classList.contains("active")){
-        adicionaEventoAoBotao()
+        generateModal()
     }
 })
-
 
 const mainContent = document.getElementById("main-content")
 
