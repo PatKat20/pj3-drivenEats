@@ -22,7 +22,7 @@ const verifyCheckedInput = foodArray => {
 // Faz a verificação dos pratos selecionados e caso tenha 3 ele formata o botão de enviar
 const verifySelectedDishes = () => {
     const sendButtonText = document.querySelector(".sendButtonText")
-    const contagemSelecionados = document.querySelectorAll(".selecionado").length
+    let contagemSelecionados = document.querySelectorAll(".selecionado").length
 
     formatButtonText(sendButtonText, contagemSelecionados)
 
@@ -31,8 +31,7 @@ const verifySelectedDishes = () => {
         sendButton.style.backgroundColor = "#32B72F"
         sendButton.style.cursor = "pointer";
         sendButton.style.fontWeight = "700"
-        adicionaEventoAoBotao()
-        contagemSelecionados--
+        sendButton.classList.add("active")
     }
 }
 
@@ -44,26 +43,23 @@ const formatButtonText = (buttonText, contagem) => {
 
 // Função que Levanta o Modal
 function adicionaEventoAoBotao() {
-    sendButton.addEventListener("click", e=> {
-        const modalArea = document.querySelector(".modalArea")
-        const [dishName, dishPrice, drinkName, drinkPrice, dessertName, dessertPrice, total] = getDishesData()
+    const modalArea = document.querySelector(".modalArea")
+    const [dishName, dishPrice, drinkName, drinkPrice, dessertName, dessertPrice, total] = getDishesData()
 
-        let dishPriceConvert = Number(dishPrice)
-        let drinkPriceConvert = Number(drinkPrice)
-        let dessertPriceConvert = Number(dessertPrice)
+    let dishPriceConvert = Number(dishPrice)
+    let drinkPriceConvert = Number(drinkPrice)
+    let dessertPriceConvert = Number(dessertPrice)
 
-        const clientName = prompt("Qual o seu nome?")
-        const clientEndereco = prompt("Qual o seu endereço?")
-        modalArea.innerHTML = setDishesInfoIntoModal(dishName, dishPriceConvert, drinkName, drinkPriceConvert, dessertName, dessertPriceConvert, total, clientName, clientEndereco)
+    const clientName = prompt("Qual o seu nome?")
+    const clientEndereco = prompt("Qual o seu endereço?")
+    modalArea.innerHTML = setDishesInfoIntoModal(dishName, dishPriceConvert, drinkName, drinkPriceConvert, dessertName, dessertPriceConvert, total, clientName, clientEndereco)
 
-        const buttonCancel = document.getElementById("order-cancel")
-        buttonCancel.addEventListener("click", _ => {
-            const fade = document.querySelector("#fade")
-            const modal = document.querySelector("#modal")
-            fade.classList.add("hide")
-            modal.classList.add("hide")
-        })
-
+    const buttonCancel = document.getElementById("order-cancel")
+    buttonCancel.addEventListener("click", _ => {3
+        const fade = document.querySelector("#fade")
+        const modal = document.querySelector("#modal")
+        fade.classList.add("hide")
+        modal.classList.add("hide")
     })
 }
 
@@ -124,6 +120,13 @@ const setDishesInfoIntoModal = (dishname, dishPrice, drinkname, drinkPrice, dess
 }
 
 // Eventos
+
+sendButton.addEventListener("click", e=> {
+    if(sendButton.classList.contains("active")){
+        adicionaEventoAoBotao()
+    }
+})
+
 
 const mainContent = document.getElementById("main-content")
 
