@@ -37,7 +37,7 @@ prodObj.convertDateIntoHtml = productInfo => {
     return productInfo.reduce((accumulator, { id, nome: productName, desc, price: productPrice, img: productImg, type}) => {
        return accumulator += `
         <label for="${type + id}" 
-        class="products ${type}" 
+        class="products" 
         data-test="${type}" 
         data-itemname="${productName}"
         data-itemprice="${productPrice}"

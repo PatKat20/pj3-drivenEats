@@ -1,41 +1,12 @@
 // Seletores e Variaveis
+const sendButton = document.getElementById("sendButton")
 
-const dishesList = document.querySelector("#dishesList")
-const drinkList = document.querySelector("#drinksList")
-const dessertList = document.querySelector("#dessertList")
-
+// Renderizadores
 dishesList.innerHTML = prodObj.convertDateIntoHtml(prodObj.dishes)
 drinksList.innerHTML = prodObj.convertDateIntoHtml(prodObj.drinks)
 dessertList.innerHTML = prodObj.convertDateIntoHtml(prodObj.desserts)
 
-const sendButton = document.getElementById("sendButton")
-
-// Renderizadores
-const dishes = document.querySelectorAll('.dish')
-const drinks = document.querySelectorAll(".drink")
-const desserts = document.querySelectorAll(".dessert")
-
 // Funções
-
-function adicionaEventoAoBotao() {
-    sendButton.addEventListener("click", e=> {
-        const modalArea = document.querySelector(".modalArea")
-        const [dishName, dishPrice, drinkName, drinkPrice, dessertName, dessertPrice, total] = getDishesData()
-        let dishPriceConvert = Number(dishPrice)
-        let drinkPriceConvert = Number(drinkPrice)
-        let dessertPriceConvert = Number(dessertPrice)
-
-        modalArea.innerHTML = setDishesInfoIntoModal(dishName, dishPriceConvert, drinkName, drinkPriceConvert, dessertName, dessertPriceConvert, total)
-
-        const buttonCancel = document.getElementById("order-cancel")
-        buttonCancel.addEventListener("click", _ => {
-            const fade = document.querySelector("#fade")
-            const modal = document.querySelector("#modal")
-            fade.classList.add("hide")
-            modal.classList.add("hide")
-        })
-    })
-}
 
 // Sempre que chamada ela vai verificar a lista dos produtos para saber quem está selecionado e quem não está
 const verifyCheckedInput = foodArray => {
@@ -61,6 +32,7 @@ const verifySelectedDishes = () => {
         sendButton.style.cursor = "pointer";
         sendButton.style.fontWeight = "700"
         adicionaEventoAoBotao()
+        contagemSelecionados--
     }
 }
 
@@ -70,16 +42,32 @@ const formatButtonText = (buttonText, contagem) => {
     buttonText.innerHTML = contagem !== 3 ? `Selecione mais ${3 - contagem} ${itemInsert} para fechar o pedido` : `Fechar Pedido`
 }
 
-// Pega os dados das receitas selecionadas e converte para uma mensagem
-const generateOrderMessage = () => {
-    const [dishName, , drinkName, , dessertName, , total] = getDishesData()
-    return `Olá, gostaria de fazer o pedido:
-    - Prato: ${dishName}
-    - Bebida: ${drinkName}
-    - Sobremesa: ${dessertName}
-Total: R$ ${total.toFixed(2)}`
+// Função que Levanta o Modal
+function adicionaEventoAoBotao() {
+    sendButton.addEventListener("click", e=> {
+        const modalArea = document.querySelector(".modalArea")
+        const [dishName, dishPrice, drinkName, drinkPrice, dessertName, dessertPrice, total] = getDishesData()
+
+        let dishPriceConvert = Number(dishPrice)
+        let drinkPriceConvert = Number(drinkPrice)
+        let dessertPriceConvert = Number(dessertPrice)
+
+        const clientName = prompt("Qual o seu nome?")
+        const clientEndereco = prompt("Qual o seu endereço?")
+        modalArea.innerHTML = setDishesInfoIntoModal(dishName, dishPriceConvert, drinkName, drinkPriceConvert, dessertName, dessertPriceConvert, total, clientName, clientEndereco)
+
+        const buttonCancel = document.getElementById("order-cancel")
+        buttonCancel.addEventListener("click", _ => {
+            const fade = document.querySelector("#fade")
+            const modal = document.querySelector("#modal")
+            fade.classList.add("hide")
+            modal.classList.add("hide")
+        })
+
+    })
 }
 
+// Pega os dados dos produtos selecionados
 const getDishesData = () => {
     const selecionados = document.querySelectorAll(".selecionado")
     const selecionadosParaArray = Array.from(selecionados);
@@ -92,13 +80,27 @@ const getDishesData = () => {
     const dessertPrice = selecionadosParaArray[2] ? selecionadosParaArray[2].dataset.itemprice : null
 
     let total = 0;
+    // Utiliza o reduce para somar o total
     total = selecionadosParaArray.reduce((accumulator, product) => accumulator + Number(product.dataset.itemprice), 0)
 
     return [dishName, dishPrice, drinkName, drinkPrice, dessertName, dessertPrice, total]
 }
 
-const setDishesInfoIntoModal = (dishname, dishPrice, drinkname, drinkPrice, dessertname, dessertPrice, total) => {
-    const urlEnconded = "https://wa.me/5555555555555?text=" + encodeURIComponent(generateOrderMessage())
+// Pega os dados das receitas selecionadas e converte para uma mensagem
+const generateOrderMessage = (clientName, clientAddress) => {
+    const [dishName, , drinkName, , dessertName, , total] = getDishesData()
+    return `Olá, gostaria de fazer o pedido:
+    - Prato: ${dishName}
+    - Bebida: ${drinkName}
+    - Sobremesa: ${dessertName}
+Total: R$ ${total.toFixed(2)}
+    Nome: ${clientName}
+    Endereço : ${clientAddress}
+`
+}
+
+const setDishesInfoIntoModal = (dishname, dishPrice, drinkname, drinkPrice, dessertname, dessertPrice, total, clientName, clientAddress) => {
+    const urlEnconded = "https://wa.me/5555555555555?text=" + encodeURIComponent(generateOrderMessage(clientName, clientAddress))
     return `
         <div id="fade"></div>
         <div id="modal" data-test="confirm-order-modal">
@@ -123,21 +125,21 @@ const setDishesInfoIntoModal = (dishname, dishPrice, drinkname, drinkPrice, dess
 
 // Eventos
 
-dishesList.addEventListener("click", e => {
-    verifyCheckedInput(dishes)
-})
-
-drinksList.addEventListener("click", e => {
-    verifyCheckedInput(drinks)
-})
-
-dessertList.addEventListener("click", e => {
-    verifyCheckedInput(desserts)
-})
-
 const mainContent = document.getElementById("main-content")
-mainContent.addEventListener("click", e=>{
-    verifySelectedDishes()
-})
 
-dishesList.getAttribute
+mainContent.addEventListener("click", e =>{
+    let target = e.target
+    if(target.classList.contains("dish")){
+        const dishes = document.querySelectorAll('.dish')
+        verifyCheckedInput(dishes)
+        verifySelectedDishes()
+    } else if(target.classList.contains("drink")){
+        const drinks = document.querySelectorAll(".drink")
+        verifyCheckedInput(drinks)
+        verifySelectedDishes()
+    } else if(target.classList.contains("dessert")){
+        const desserts = document.querySelectorAll(".dessert")
+        verifyCheckedInput(desserts)
+        verifySelectedDishes()
+    }
+})
