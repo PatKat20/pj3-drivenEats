@@ -1,6 +1,6 @@
 # pj3-drivenEats
 
-[![wakatime](https://wakatime.com/badge/user/096df7a9-014a-4030-8cf8-87712a6c4c5c/project/83828d98-03bd-42e8-9109-b688aa562e7c.svg)](https://wakatime.com/badge/user/096df7a9-014a-4030-8cf8-87712a6c4c5c/project/83828d98-03bd-42e8-9109-b688aa562e7c)
+
 
 ## Descrição
 
