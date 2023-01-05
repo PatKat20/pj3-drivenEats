@@ -31,6 +31,11 @@ ul {
     list-style: none;
 }
 
+.imgArea img{
+    object-fit: cover;
+    object-position: 0 30%;
+    height:87px;
+}
 
 /* Header area */
 
@@ -73,6 +78,16 @@ ul {
     /* Firefox */
 }
 
+#drinksList .priceArea,
+#dessertList .priceArea{
+    margin-top:20px;
+}
+
+#drinksList .desc,
+#dessertList .desc{
+    padding-top:20px;
+}
+
 .removescroll::-webkit-scrollbar {
     display: none;
 }
@@ -109,7 +124,7 @@ ul {
 .priceArea{
     display:flex;
     justify-content: space-between;
-    margin-top:15px;
+    margin-top:10px;
 }
 
 .desc {

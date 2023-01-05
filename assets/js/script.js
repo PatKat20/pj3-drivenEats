@@ -1,3 +1,6 @@
+import { formatNumber } from "./utils/utils.js";
+import { prodObj } from "./products.js";
+
 // Seletores e Variaveis
 const sendButton = document.getElementById("sendButton")
 
@@ -46,13 +49,16 @@ function generateModal() {
     let drinkPriceConvert = Number(drinkPrice)
     let dessertPriceConvert = Number(dessertPrice)
 
-    const clientName = prompt("Qual o seu nome?")
-    const clientEndereco = prompt("Qual o seu endereço?")
+    let clientName = prompt("Qual o seu nome?")
+    let clientEndereco = prompt("Qual o seu endereço?")
+    
+    clientName = clientName || "Não fornecido"
+    clientEndereco = clientEndereco || "Não fornecido"
 
     modalArea.innerHTML = setDishesInfoIntoModal(dishName, dishPriceConvert, drinkName, drinkPriceConvert, dessertName, dessertPriceConvert, total, clientName, clientEndereco)
 
     const buttonCancel = document.getElementById("order-cancel")
-    buttonCancel.addEventListener("click", _ => {3
+    buttonCancel.addEventListener("click", _ => {
         const fade = document.querySelector("#fade")
         const modal = document.querySelector("#modal")
         fade.classList.add("hide")
@@ -91,10 +97,10 @@ const setDishesInfoIntoModal = (dishname, dishPrice, drinkname, drinkPrice, dess
             </header>
             <section class="order">
                 <ul id="order-list">
-                    <li class="order-item"><span>${dishname}</span> <span>${dishPrice.toFixed(2)}</span></li>
-                    <li class="order-item"><span>${drinkname} </span> <span>${drinkPrice.toFixed(2)}</span></li>
-                    <li class="order-item"><span>${dessertname} </span> <span>${dessertPrice.toFixed(2)}</span></li>
-                    <li id="order-total"><span>Total</span> <span>R$ ${total.toFixed(2)}</span></li>
+                    <li class="order-item"><span>${dishname}</span> <span>${formatNumber(dishPrice)}</span></li>
+                    <li class="order-item"><span>${drinkname} </span> <span>${formatNumber(drinkPrice)}</span></li>
+                    <li class="order-item"><span>${dessertname} </span> <span>${formatNumber(dessertPrice)}</span></li>
+                    <li id="order-total"><span>Total</span> <span>R$ ${formatNumber(total)}</span></li>
                 </ul>
                 <div>
                     <a href="${urlEnconded}" target="_blank" id="order-accept" data-test="confirm-order-btn">Tudo certo, pode pedir!</a>
@@ -106,7 +112,7 @@ const setDishesInfoIntoModal = (dishname, dishPrice, drinkname, drinkPrice, dess
 }
 
 // Pega os dados das receitas selecionadas e converte para uma mensagem
-const generateOrderMessage = (clientName = "Não fornecido", clientAddress = "Não Fornecido") => {
+const generateOrderMessage = (clientName, clientAddress) => {
     const [dishName, , drinkName, , dessertName, , total] = getDishesData()
     return `Olá, gostaria de fazer o pedido:\n
     - Prato: ${dishName}\n

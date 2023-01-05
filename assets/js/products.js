@@ -1,3 +1,5 @@
+import { formatNumber } from "./utils/utils.js"
+
 const prodObj = {}
 
 prodObj.dishes = [
@@ -44,13 +46,13 @@ prodObj.convertDateIntoHtml = productInfo => {
         data-itemtype="${type}"
         data-itemid="${id}">
             <div class="imgArea">
-                <img src="${productImg}" alt="" width="144px" height="82px">
+                <img src="${productImg}" alt="" width="144px">
             </div>
             <div class="descArea">
                 <h4 data-test="item-name">${productName}</h4>
                 <p class="desc">${desc}</p>
                 <div class="priceArea">
-                    <p data-test="item-price" class="price">${productPrice.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</p>
+                    <p data-test="item-price" class="price">R$ ${formatNumber(productPrice)}</p>
                     <img src="assets/img/Vector.svg" class="okayImg" width="16px"></img>
                 </div>
             </div>
@@ -60,3 +62,6 @@ prodObj.convertDateIntoHtml = productInfo => {
     `
     }, "")
 }
+
+export { prodObj }
+
