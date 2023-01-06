@@ -8,7 +8,7 @@ const ORDERDATA = {
 
 orders.getTotal = () => {
     const sumTotal = Object.values(ORDERDATA).reduce((acc, val) => acc + Number(val.price), 0)
-    return sumTotal
+    return sumTotal.toFixed(2)
 }
 
 orders.insertOrder = (orderSelected) =>{

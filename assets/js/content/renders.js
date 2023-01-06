@@ -31,7 +31,7 @@ render.productDataIntoHtml = productInfo => {
     }, "")
 }
 
-render.dishesInfoIntoModal = ({dish, drink, dessert, total = orders.getTotal().toFixed(2)}) => {
+render.dishesInfoIntoModal = ({dish, drink, dessert, total = orders.getTotal()}) => {
     let [clientName, clientAddress] = getNumberAndAdress()
 
     const urlEnconded = "https://wa.me/5555555555555?text=" + encodeURIComponent(orderMessage(clientName, clientAddress))
