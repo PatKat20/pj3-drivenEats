@@ -1,5 +1,32 @@
 import { orders } from "../database/order.js"
 
+function verifyDishes(event) {
+    let target = event.target
+    if (target.classList.contains("dish")) {
+        const dishes = document.querySelectorAll('.dish')
+        verifyCheckedInput(dishes)
+        verifySelectedDishes()
+    }
+}
+
+function verifyDrinks(event) {
+    let target = event.target
+    if (target.classList.contains("drink")) {
+        const drinks = document.querySelectorAll('.drink')
+        verifyCheckedInput(drinks)
+        verifySelectedDishes()
+    }
+}
+
+function verifyDesserts(event) {
+    let target = event.target
+    if (target.classList.contains("dessert")) {
+        const desserts = document.querySelectorAll(".dessert")
+        verifyCheckedInput(desserts)
+        verifySelectedDishes()
+    }
+}
+
 // Sempre que chamada ela vai verificar a lista dos produtos para saber quem está selecionado e quem não está
 const verifyCheckedInput = foodArray => {
     foodArray.forEach(input => {
@@ -30,4 +57,4 @@ function formatButtonText(buttonText, contagem) {
     buttonText.innerHTML = contagem !== 3 ? `Selecione mais ${3 - contagem} ${itemInsert} para fechar o pedido` : `Fechar Pedido`
 }
 
-export {verifyCheckedInput, verifySelectedDishes}
+export {verifyDishes, verifyDrinks, verifyDesserts}
