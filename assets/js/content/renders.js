@@ -67,7 +67,7 @@ function getNumberAndAdress(){
 
 function orderMessage (clientName, clientAddress){
     const {dish, drink, dessert, total = orders.getTotal()} = orders.getOrderData()
-
+    console.log(total)
     return `Olá, gostaria de fazer o pedido:\n
     - Prato: ${dish.name}\n
     - Bebida: ${drink.name}\n

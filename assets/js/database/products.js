@@ -7,7 +7,7 @@ produtosBD.getDataFromDb = searchProdDb =>{
 }
 
 produtosBD.dishes = [
-    {id:1, nome: "Frango Yin Yang", desc: "Um pouco de batata, um pouco de salada", price: 14.90, img: "assets/img/frango_yin_yang.png" , type:"dish"},
+    {id:1, nome: "Frango Yin Yang", desc: "Um pouco de batata, um pouco de salada", price: 15.00, img: "assets/img/frango_yin_yang.png" , type:"dish"},
     {id:2, nome: "Salmao", desc: "Dalmao grelhado com legumes", price: 20.40, img: "https://cdn.pixabay.com/photo/2014/11/05/15/57/salmon-518032__340.jpg" , type:"dish"},
     {id:3, nome: "Omelete", desc: "Talvez nao seja omelete", price: 10.00, img: "https://cdn.pixabay.com/photo/2018/08/31/19/13/pumpkin-soup-3645375__340.jpg" , type:"dish"},
     {id:4, nome: "Panqueca", desc: "Panquecas como almoço, delicia", price: 17.50, img: "https://cdn.pixabay.com/photo/2016/11/22/23/45/pancakes-1851249__340.jpg" , type:"dish"},
@@ -30,7 +30,7 @@ produtosBD.drinks = [
 ]
 
 produtosBD.desserts = [
-    {id:1, nome: "Pudim", desc: "Apenas pudim", price: 7.90, img:"assets/img/pudim.png", type: "dessert" },
+    {id:1, nome: "Pudim", desc: "Apenas pudim", price: 7.00, img:"assets/img/pudim.png", type: "dessert" },
     {id:2, nome: "Chocolate mousse", desc: "Chocolate mousse", price: 15.50, img:"https://img.delicious.com.au/Bxyg9oxN/del/2022/05/chocolate-mousse-with-cherry-ripe-168604-1.png", type: "dessert" },
     {id:3, nome: "Bolinhos", desc: "Bolinhos diversos", price: 10.00, img:"https://media.istockphoto.com/id/497959594/photo/fresh-cakes.jpg?s=612x612&w=0&k=20&c=T1vp7QPbg6BY3GE-qwg-i_SqVpstyHBMIwnGakdTTek=", type: "dessert" },
     {id:4, nome: "Brownie", desc: "Brownie de chocolate", price: 7.00, img:"https://insanelygoodrecipes.com/wp-content/uploads/2021/08/Gluten-Free-Chocolate-Chip-Brownies-683x1024.jpg", type: "dessert" },
