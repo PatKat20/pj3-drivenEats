@@ -31,7 +31,7 @@ render.productDataIntoHtml = productInfo => {
     }, "")
 }
 
-render.dishesInfoIntoModal = ({dish, drink, dessert, total = orders.getTotal()}) => {
+render.dishesInfoIntoModal = ({dish, drink, dessert, total = orders.getTotal().toFixed(2)}) => {
     let [clientName, clientAddress] = getNumberAndAdress()
 
     const urlEnconded = "https://wa.me/5555555555555?text=" + encodeURIComponent(orderMessage(clientName, clientAddress))
@@ -59,11 +59,8 @@ render.dishesInfoIntoModal = ({dish, drink, dessert, total = orders.getTotal()})
 }
 
 function getNumberAndAdress(){
-    let clientName = prompt("Qual o seu nome?")
-    let clientEndereco = prompt("Qual o seu endereço?")
-    
-    clientName = clientName || "Não fornecido"
-    clientEndereco = clientEndereco || "Não fornecido"
+    let clientName = prompt("Qual o seu nome?") || "Não Fornecido"
+    let clientEndereco = prompt("Qual o seu endereço?")|| "Não fornecido"
 
     return [clientName, clientEndereco]
 }

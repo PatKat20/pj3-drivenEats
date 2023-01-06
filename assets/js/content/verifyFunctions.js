@@ -43,7 +43,6 @@ const verifyCheckedInput = foodArray => {
 const verifySelectedDishes = () => {
     const sendButtonText = document.querySelector(".sendButtonText")
     let contagemSelecionados = document.querySelectorAll(".selecionado").length
-
     formatButtonText(sendButtonText, contagemSelecionados)
 
     if (contagemSelecionados === 3) {

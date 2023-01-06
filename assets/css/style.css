@@ -49,6 +49,7 @@ ul {
     position: sticky;
     top: 0;
     left: 0;
+    z-index:4
 }
 
 #h-title {
@@ -155,11 +156,13 @@ ul {
 
 .okayImg{
     opacity: 0;
+    transform: scale(0.5);
     transition:.2s all ease-in;
 }
 
 .selecionado .okayImg{
     opacity:1;
+    transform: scale(1);
 }
 
 
