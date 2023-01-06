@@ -66,7 +66,7 @@ function getNumberAndAdress(){
 }
 
 function orderMessage (clientName, clientAddress){
-    let {dish, drink, dessert, total = orders.getTotal()} = orders.getOrderData()
+    let {dish, drink, dessert, total = orders.getTotal().toFixed(2)} = orders.getOrderData()
 
     total = total.toString().replace(".", ",")
     return `Olá, gostaria de fazer o pedido:\n
