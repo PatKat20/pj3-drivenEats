@@ -159,7 +159,7 @@ ul {
 }
 
 .selecionado .okayImg{
-    opacity:1
+    opacity:1;
 }
 
 
@@ -284,6 +284,7 @@ ul {
     margin-bottom:26px;
     font-weight: 700;
     text-align:center;
+    font-size:22px;
 }
 
 #order-cancel{
@@ -293,5 +294,6 @@ ul {
     font-weight: 700;
     cursor:pointer;
     margin:0 auto;
-    width:100%
+    width:100%;
+    font-size:20px;
 }
