@@ -1,18 +1,19 @@
-import { formatNumber } from "../utils/utils.js"
-import { orders } from "../database/order.js"
+import { formatNumber } from "../utils/utils.js";
+import { orders } from "../database/order.js";
 
-const render = {}
+const render = {};
 
 render.productDataIntoHtml = productInfo => {
     return productInfo.reduce((accumulator, { id, nome: productName, desc, price: productPrice, img: productImg, type}) => {
-       return accumulator += `
+       accumulator += `
         <label for="${type + id}" 
-        class="products" 
+        class="productsContainer" 
         data-test="${type}" 
         data-itemname="${productName}"
         data-itemprice="${productPrice}"
         data-itemtype="${type}"
-        data-itemid="${id}">
+        data-itemid="${id}"
+        id="${type}-${id}">
             <div class="imgArea">
                 <img src="${productImg}" alt="" width="144px">
             </div>
@@ -25,16 +26,17 @@ render.productDataIntoHtml = productInfo => {
                 </div>
             </div>
             
-            <input type="radio" id="${type + id}" name="${type}" class="${type}">
+            <input type="radio" id="${type + id}" name="${type}" class="${type} products">
         </label>
-    `
-    }, "")
-}
+    `;
+    return accumulator;
+    }, "");
+};
 
 render.dishesInfoIntoModal = ({dish, drink, dessert, total = orders.getTotal()}) => {
-    let [clientName, clientAddress] = getNumberAndAdress()
+    let [clientName, clientAddress] = getNumberAndAdress();
 
-    const urlEnconded = "https://wa.me/5555555555555?text=" + encodeURIComponent(orderMessage(clientName, clientAddress))
+    const urlEnconded = "https://wa.me/5555555555555?text=" + encodeURIComponent(orderMessage(clientName, clientAddress));
 
     return `
         <div id="fade"></div>
@@ -56,18 +58,18 @@ render.dishesInfoIntoModal = ({dish, drink, dessert, total = orders.getTotal()})
             </section>
         </div>
     `
-}
+};
 
 function getNumberAndAdress(){
-    let clientName = prompt("Qual o seu nome?") || "Não Fornecido"
-    let clientEndereco = prompt("Qual o seu endereço?")|| "Não fornecido"
+    const clientName = prompt("Qual o seu nome?") || "Não Fornecido";
+    const clientEndereco = prompt("Qual o seu endereço?")|| "Não fornecido";
 
-    return [clientName, clientEndereco]
-}
+    return [clientName, clientEndereco];
+};
 
 function orderMessage (clientName, clientAddress){
-    const {dish, drink, dessert, total = orders.getTotal()} = orders.getOrderData()
-    console.log(total)
+    const {dish, drink, dessert, total = orders.getTotal()} = orders.getOrderData();
+
     return `Olá, gostaria de fazer o pedido:\n
     - Prato: ${dish.name}\n
     - Bebida: ${drink.name}\n
@@ -76,7 +78,7 @@ function orderMessage (clientName, clientAddress){
    
   \nNome: ${clientName}\n
     Endereço : ${clientAddress}\n
-`
-}
+`;
+};
 
-export { render }
+export { render };
