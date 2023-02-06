@@ -2,31 +2,34 @@
 
 ![wakatime](https://wakatime.com/badge/user/096df7a9-014a-4030-8cf8-87712a6c4c5c/project/83828d98-03bd-42e8-9109-b688aa562e7c.svg)
 
-## Descrição
+## Introdução
 
-- Seu primeiro projeto usando JavaScript será a implementação do site (apenas a versão *mobile*) do DrivenEats, um restaurante especial que entrega seu pedido em 6 minutos!
+Uma aplicação interativa simulando um e-commerce de entrega de comida onde o usuário deve escolher 3 produtos e ao final clicar em enviar pedido. Após isso o usuário será redirecionado ao whatsapp com uma mensagem pronta referente ao pedido selecionado para o restaurante.
 
-- Para isso, o restaurante só trabalha com um tipo específico de pedido: o combo de Prato + Bebida + Sobremesa.
+## Funcionalidade
 
-- O site permite de forma fácil a escolha do seu combo, enviando em seguida o pedido por WhatsApp diretamente para o restaurante.
+ 1. Escolher 3 produtos e destacá-los
+ 2. Gerar uma mensagem e redirecionar para o whatsapp
+ 
+## Tecnologias utilizadas
 
-  <details>
-      <summary>Versionamento do código</summary>
-      - Versionamento usando Git é obrigatório, crie um repositório público no seu perfil do GitHub
-      - Faça commits a cada funcionalidade implementada.
+  - JavaScript Vanilla
+  - HTML
+  - CSS
 
-  </details>
+## Instruções de uso
 
-  <details>
-      <summary>Layout</summary>
-      - Aplicar layout para mobile, seguindo o Figma fornecido (não é necessário implementar um layout para desktop).
-      - O topo e o botão de fechar pedido devem ter posicionamento fixo e não rolar com a barra de rolagem.
-      - Você pode usar imagens e textos aleatórios para ilustrar a página, porém varie o preço em cada item da mesma categoria.
-      - As fontes utilizadas são: Righteous (nome do restaurante e títulos das categorias) e Roboto (demais textos).
-      - Para fazer as sombras presentes em alguns elementos, pesquise sobre como aplicar sombras em CSS e brinque com os valores até ficar parecido com as imagens do layout.
-      - Para fazer os produtos rolarem horizontalmente, utilize overflow-x: scroll. No modo desktop um scroll é exibido, mas no modo celular não.
-  </details>
+  1. Acesse a página principal e selecione o produto que deseja comprar
+  2. Após selecionar os 3 produtos clique no botão de enviar pedido para ser redirecionado ao chat do restaurante
+  3. Selecione novos produtos :D
+ 
+## Imagens
 
-  
+![image](https://user-images.githubusercontent.com/100157955/216877113-546978cc-2da5-42c1-b3dd-8e94f903ae20.png) ![image](https://user-images.githubusercontent.com/100157955/216877124-2621d99b-fc80-4c7d-b0c1-0b484bdd65a5.png) ![image](https://user-images.githubusercontent.com/100157955/216877135-dbbd603d-1208-4db0-afdc-71b856ac20ce.png)
+
+
+
+
+
 
   
